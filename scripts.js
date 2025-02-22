@@ -1,4 +1,4 @@
-// Obtendo os dados do formulário
+// Criando um objeto de nova despesa
 
 // Seleciona os elementos do formulário.
 const form = document.querySelector("form")
@@ -30,6 +30,19 @@ function formatCurrencyBRL(value){
 }
 
 form.onsubmit = (event) => {
-  event.preventDefault() // Comando que serve para a página não recarregar depois de clicar em adicionar despesas
-  // console.log("teste") // Apenas para teste
+  // Previne o comportamento padrão de fazer recarregar a página.
+  event.preventDefault()
+
+  // Cria um objeto com os detalhes na nova despesa.
+  const newExpense = {
+    id: new Date().getTime(),
+    expense: expense.value,
+    category_id: category.value,
+    category_name: category.options[category.selectedIndex].text,
+    amount: amount.value,
+    create_at: new Date(),
+  }
+
+  console.log(newExpense) // Utilizado apenas para teste no console
 }
+
