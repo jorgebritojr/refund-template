@@ -1,4 +1,4 @@
-// Criando a função para adicionar uma nova despesa
+// Criando a li
 
 // Seleciona os elementos do formulário.
 const form = document.querySelector("form")
@@ -48,8 +48,9 @@ form.onsubmit = (event) => {
 
 function expenseAdd(newExpense) {
   try {
-    throw new Error("Erro de teste") // Para testar que o fluxo está funcionando quando tiver uma exceção (Para testar é necessário alimentar o formulário e adicionar despesa para o erro aparecer no console)
-
+    // Cria o elemento para adicionar o item (li) na lista (ul).
+    const expenseItem = document.createElement("li")
+    expenseItem.classList.add("expense")
   } catch (error) {
     alert("Não foi possível atualizar a lista de despesas. ")
     console.log(error)
