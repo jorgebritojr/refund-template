@@ -1,4 +1,4 @@
-// Criando um objeto de nova despesa
+// Criando a função para adicionar uma nova despesa
 
 // Seleciona os elementos do formulário.
 const form = document.querySelector("form")
@@ -42,7 +42,17 @@ form.onsubmit = (event) => {
     amount: amount.value,
     create_at: new Date(),
   }
+  // Chama a função que irá adicionar o item na lista
+  expenseAdd(newExpense)
+}
 
-  console.log(newExpense) // Utilizado apenas para teste no console
+function expenseAdd(newExpense) {
+  try {
+    throw new Error("Erro de teste") // Para testar que o fluxo está funcionando quando tiver uma exceção (Para testar é necessário alimentar o formulário e adicionar despesa para o erro aparecer no console)
+
+  } catch (error) {
+    alert("Não foi possível atualizar a lista de despesas. ")
+    console.log(error)
+  } 
 }
 
