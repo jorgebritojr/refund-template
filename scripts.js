@@ -1,4 +1,4 @@
-// Removendo um item da lista
+// Cuidando da usabilidade
 
 // Seleciona os elementos do formulário.
 const form = document.querySelector("form")
@@ -99,6 +99,9 @@ function expenseAdd(newExpense) {
     // Adiciona o item na lista.
     expenseList.append(expenseItem)
 
+    // Limpa o formulário para adicionar um novo item.
+    formClear()
+
     // Atualiza os totais
     updateTotals()
   } catch (error) {
@@ -182,3 +185,13 @@ expenseList.addEventListener("click", function(event){
   updateTotals()
 
 })
+
+function formClear() {
+  // Limpa os inputs.
+  expense.value = ""
+  category.value = ""
+  amount.value = ""
+
+  // Coloca o foco no input amount.
+  expense.focus()
+}
