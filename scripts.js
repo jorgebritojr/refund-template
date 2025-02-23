@@ -1,4 +1,4 @@
-// Criando a informação da despesa
+// Criando o valor da despesa
 
 // Seleciona os elementos do formulário.
 const form = document.querySelector("form")
@@ -8,8 +8,6 @@ const category = document.getElementById("category")
 
 // Seleciona os elementos da lista.
 const expenseList = document.querySelector("ul")
-
-
 
 // Captura o evento de input para formatar o valor
 amount.oninput = () => {
@@ -77,8 +75,17 @@ function expenseAdd(newExpense) {
     // Adiciona nome e categoria na div das informações da despesa.
     expenseInfo.append(expenseName, expenseCategory)
 
+    // Cria o valor da despesa.
+    const expenseAmount = document.createElement("span")
+       expenseAmount.classList.add("expense-amount")
+       expenseAmount.innerHTML = `<small>R$</small>${newExpense.amount
+         .toUpperCase()
+         .replace("R$", "")}`
+  
+
+
     // Adiciona as informações no item.
-    expenseItem.append(expenseIcon, expenseInfo)
+    expenseItem.append(expenseIcon, expenseInfo, expenseAmount)
 
     // Adiciona o item na lista.
     expenseList.append(expenseItem)
