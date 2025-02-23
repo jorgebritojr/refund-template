@@ -1,4 +1,4 @@
-// Exibindo a quantidade de itens da lista
+// Percorrendo os itens da lista
 
 // Seleciona os elementos do formulário.
 const form = document.querySelector("form")
@@ -111,11 +111,21 @@ function updateTotals() {
   try {
     // Recupera todos os itens (li) da lista (ul)
     const items = expenseList.children
-    console.log(items)
+    // console.log(items) // para teste
 
     // Atualiza a quantidade de itens da lista.
     expensesQuantity.textContent = `${items.length} ${items.length > 1 ? "despesas" : "despesa"
     }`
+
+    // Variável para incrementar o total.
+    let total  = 0
+
+    // Percorre cada item (li) da lista (ul)
+    for (let item = 0; item <items.length; item++) {
+      const itemAmount = items[item].querySelector(".expense-amount")
+      console.log(itemAmount)
+      
+    }
   } catch (error) {
     console.log(error)
     alert("N~ao foi possível atualizar os totais")
