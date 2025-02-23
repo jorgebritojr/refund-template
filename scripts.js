@@ -1,4 +1,4 @@
-// Formatando o valor total
+// Capturando o clique para remover uma despesa
 
 // Seleciona os elementos do formulário.
 const form = document.querySelector("form")
@@ -165,3 +165,11 @@ function updateTotals() {
   }
 }
 
+// Evento que captura o clique nos itens da lista
+expenseList.addEventListener("click", function(event){
+  // Verificar se o elemento clicado é o ícone de remover.
+  if(event.target.classList.contains("remove-icon")){
+    console.log(event)
+  }
+
+})
