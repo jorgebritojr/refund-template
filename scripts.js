@@ -1,4 +1,4 @@
-// Calculando o valor total
+// Formatando o valor total
 
 // Seleciona os elementos do formulário.
 const form = document.querySelector("form")
@@ -127,7 +127,7 @@ function updateTotals() {
       // console.log(itemAmount) //  para teste
 
       // Remover caracteres não numéricos e substitui a vírgula pelo ponto.
-      let value = itemAmount.textContent.replace(/[^\d]/g, "").replace(",",".")
+      let value = itemAmount.textContent.replace(/[^\d,]/g, "").replace(",",".")
 
       // Converte o valor para float.
       value = parseFloat(value)
@@ -143,7 +143,22 @@ function updateTotals() {
       
     }
 
-    expenseTotal.textContent = total
+    // expenseTotal.textContent = total // para teste
+    // expenseTotal.textContent = formatCurrencyBRL(total)
+
+    // Cria a span para adicionar o R$ formatado
+    const symbolBRL = document.createElement("small")
+    symbolBRL.textContent = "R$"
+
+    // Formata o valor e remove o R$ que será exibido pela small com um estilo customizado.
+    total = formatCurrencyBRL(total).toUpperCase().replace("R$", "")
+
+    // Limpa o conteúdo do elemento.
+    expenseTotal.innerHTML = ""
+
+    // Adiciona o símbolo da moeda e o valor total formatado.
+    expenseTotal.append(symbolBRL, total)
+
   } catch (error) {
     console.log(error)
     alert("Não foi possível atualizar os totais")
